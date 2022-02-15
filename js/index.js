@@ -72,11 +72,28 @@ function createInnerNewsContainer(btnsPanel, titleNewsBlockH3, headerBgSrc) {
   return innerNewsContainer;
 }
 
+
 function createBtnsPanel() {
   const btnsPanel = document.createElement("div");
   btnsPanel.classList.add("btns-panel");
-  btnsPanel.innerHTML = `<button class="btn btn-like"><i class="fas fa-heart"></i>&ensp;like</button>
-<button class="btn btn-remove"><i class="fas fa-trash"></i>&ensp;remove</button>`;
+
+  const btnDelete = document.createElement('button');
+  btnDelete.classList.add('btn-remove', 'btn');
+  btnDelete.innerHTML = `<i class="fas fa-trash"></i>&ensp;remove`;
+
+  const btnLike = document.createElement('button');
+  btnLike.classList.add('btn-like', 'btn');
+  btnLike.innerHTML = `<i class="fas fa-heart"></i>&ensp;like`;
+
+  btnsPanel.append(btnLike, btnDelete);
+
+  btnDelete.addEventListener('click', function(e) {
+    e.currentTarget.closest('.list-news-item').remove();
+  })
+
+  btnLike.addEventListener('click', function(e) {
+    e.currentTarget.classList.toggle('active');
+  })
 
   return btnsPanel;
 }
@@ -116,9 +133,9 @@ function createdNewsDate(date) {
   return newsDate;
 }
 
-const btnRemove = document.querySelectorAll(".btn-remove");
+// const btnRemove = document.querySelectorAll(".btn-remove");
 
-[...btnRemove].addEventListener("click", (e) => {
-  console.log(e.currentTarget);
-});
+// // [...btnRemove].addEventListener("click", (e) => {
+// //   console.log(e.currentTarget);
+// // });
 

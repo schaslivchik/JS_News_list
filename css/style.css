@@ -68,6 +68,7 @@ section {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.2px;
+  margin: 5px;
 }
 .title-category {
   font-size: 18px;
@@ -86,6 +87,7 @@ section {
   font-size: 14px;
   color: #6e6e6e;
 }
+.btn-like.active,
 .btn-like:hover {
   color: #5f7be4;
 }
