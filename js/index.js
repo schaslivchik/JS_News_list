@@ -62,6 +62,10 @@ function createListNewItem({ title, headerBgSrc, category, body, date }) {
       createdNewsDate(date)
     )
   );
+
+  listNewsItem.addEventListener('click', function(e){
+    e.currentTarget.classList.toggle('active-item')
+  })
 }
 
 function createInnerNewsContainer(btnsPanel, titleNewsBlockH3, headerBgSrc) {
@@ -93,8 +97,9 @@ function createBtnsPanel() {
 
   btnLike.addEventListener('click', function(e) {
     e.currentTarget.classList.toggle('active');
-  })
-
+    e.stopPropagation()
+  },{capture: true});
+  
   return btnsPanel;
 }
 
@@ -133,9 +138,4 @@ function createdNewsDate(date) {
   return newsDate;
 }
 
-// const btnRemove = document.querySelectorAll(".btn-remove");
-
-// // [...btnRemove].addEventListener("click", (e) => {
-// //   console.log(e.currentTarget);
-// // });
 

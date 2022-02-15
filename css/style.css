@@ -94,3 +94,6 @@ section {
 .btn-remove:hover {
   color: #f53535;
 }
+.active-item {
+  box-shadow: 3px 19px 50px 0px rgba(34, 60, 80, 0.14);
+}
